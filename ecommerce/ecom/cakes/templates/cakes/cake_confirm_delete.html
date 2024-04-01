@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ cake.name }}"?</p>
+        {{ form }}
+        <input type="submit" value="Confirm">
+        <a href="{{ cake.get_absolute_url }}">Cancel</a>
+    </form>
+</body>
+</html>

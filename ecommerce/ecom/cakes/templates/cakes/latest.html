@@ -1,0 +1,25 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cakes/style.css' %}">
+</head>
+<body>
+    {% for cake in cakes %}
+    <div class="cake-item">
+        <!--img src="cake1.jpg" alt="Chocolate Cake"-->
+        <a href="{% url 'cakes:details' cake.pk cake.slug %}"><h3>{{ cake.name }}</h3></a>
+        <p>{{cake.description}}</p>
+    </div>
+    {% endfor %}
+    <a href="{% url 'cakes:home' %}">
+        home
+    </a>
+    <a href="{% url 'cakes:latest' %}">
+    </a>
+</body>
+</html>

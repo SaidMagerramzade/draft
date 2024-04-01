@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cakes/style.css' %}">
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <Li><a href="{% url 'cakes:contacts' %}">Contact</a></Li>
+            <Li><a href="{% url 'cakes:about' %}">About</a></Li>
+            <li><a href="{% url 'cakes:latest' %}">Top 5 latest cakes</a></li>
+            <li> <a href="{% url 'cakes:create-cake' %}">Creating a new cake</a></li>
+            <li><a href="{% url 'cakes:rating' %}"> Ratings </a></li>
+        </ul>
+    </nav>
+
+    {% for cake in cakes %}
+        <a href="{{cake.get_absolute_url}}">{{ cake.name }} {{ cake.price }}</a> 
+    {% endfor %}
+
+    <div class="sky-blue-background">
+        <!-- Content goes here -->
+        <h1>This is a sky blue background</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor mauris id ultricies consequat.</p>
+    </div>
+
+    <section id="about">
+        <h2>About us</h2>
+        <p>Our pastry has been working since 2000 and we are enthusiastic to serve you each day without weekends</p>
+        <p>King Regards: Your the best pastry in the neighbourhood</p>
+    </section>
+
+
+    <form action="{% url 'cakes:home' %}" method="get">
+        <label for="price-min">Minimum Price</label>
+        <input type="number" id="price-min" name="price_min">
+        <label for="price-max">Maximum Price</label>
+        <input type="number" id="price-max" name="price_max">
+        <button type="submit"> filter for me </button>
+    </form>
+</body>
+</html>

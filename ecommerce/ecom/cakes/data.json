@@ -1,0 +1,10 @@
+{
+    "name": "Said",
+    "surname": "Maharramzade",
+    "age": 23,
+    "extra_data": {
+        "is_married": false,
+        "hobbies": ["Reading", "Coding"],
+        "salary": 2700
+    }
+}

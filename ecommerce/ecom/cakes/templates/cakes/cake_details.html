@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cakes/style.css' %}">
+    
+</head>
+<body>
+    <p> {{cake.name}} </p>
+    <p> {{cake.description}} </p>
+    <p> {{cake.weight}}g </p>
+    <p> {{cake.price}}AZN </p>
+    <p> {{cake.baked_at}} </p>
+    <p> {{cake.stars}} </p>
+
+    <a href="{% url 'cakes:home' %}">
+        home
+    </a>
+    {% if cake.image %}
+        <img src="{{ cake.image.url }}" width="200px" alt="no image available">
+    {% else %}
+        <p>No image available</p>
+    {% endif %}
+    <a href="{% url 'cakes:cake-delete' cake.pk %}"> Delete </a>
+</body>
+</html>
